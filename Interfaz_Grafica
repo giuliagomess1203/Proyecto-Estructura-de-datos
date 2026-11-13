@@ -407,6 +407,17 @@ sb.append(avisoHtml(aviso));
 int cantidad = subredes.getCantidad();
 if (cantidad == 0){
 return sb.append("<p style='color:#27AE60'><b>La red esta totalmente conectada.</b>" + "Desde cualquier estacion se pede llegar a cualquier otra. </p>");
+}else{
+sb.append("<p>La red esta dividida en <b>").append(cantidad).append("subredes</b> aisladas entre si.").append("No es posible viajar de una subred a otra.</p>");
+int aisladas = subredes.contarEstacionesAisladas();
+if(aisladas>0){
+sb.append("<p style='color:#D64545'>").append(aisladas).append("totalmente incomunicada(s).</p>");
+}
+}
+int i = 0;
+for (Nodo<ListaEnlazada<String> n = subredes.getSubredes().getCabeza(); n != null; n = n.getsiguiente(), i++){
+ListaEnlazada<String> s = n.getDato();
+sb.append("<p><font color='").append(Tema.hex(Tema.colorCategoria(i))).append("')>&#9679;</font><b>Subred").append(i + 1).append("</b>(").append(s.tamano() == 1 ? "estacion":"estaciones").append(")<br><font color='#6B7280'>
 }
 }
 }
