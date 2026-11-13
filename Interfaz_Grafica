@@ -375,6 +375,6 @@ private static final int FILAS_RANKING = 10;
 private GeneradorInformes(){
 }
 public static String bienvenida(){
-return abrir("Como usar Urbanroute") + "<p>La red se muestra como un grafo: cada circulo es una estacion y cada linea una" + "conexion con su tiempo de translado en minutos.</p>" + "<p><b>En el grafo</b></p><ul>" + "<li>Clic en una estacion: ver su ficha.</li>" + "<li>Rueda del raton: acercar/alejar.</li>" + "<li>Arrastrar el fondo: mover la vista.</li>" + "<li>Arrastrar una estacion: reubicarla.</li></ul>" + "<p><b>Analisis</b></p><ul>" + "<li><b>Subredes</b>
+return abrir("Como usar Urbanroute") + "<p>La red se muestra como un grafo: cada circulo es una estacion y cada linea una" + "conexion con su tiempo de translado en minutos.</p>" + "<p><b>En el grafo</b></p><ul>" + "<li>Clic en una estacion: ver su ficha.</li>" + "<li>Rueda del raton: acercar/alejar.</li>" + "<li>Arrastrar el fondo: mover la vista.</li>" + "<li>Arrastrar una estacion: reubicarla.</li></ul>" + "<p><b>Analisis</b></p><ul>" + "<li><b>Subredes</b>: zonas que quedan conectadas entre si (BFS).</li>" + "<li><b>Ruta mas rapida</b>: menor tiempo entre A y B (Dijksta).</li>" + "<li><b>Hubs</b>: estaciones con mas conexiones directas.</li></ul>" + "<p>Los cambios a la red se guardan en el archivo con <b>Actualizar repositorio</b>.</p>"+ cerrar();
 }
 }
