@@ -394,8 +394,19 @@ sb.append("<p style ='color:#D64545'>Estacion aislada: no tiene conexiones.</p>"
 }else{
 sb.append("<ul>");
 for(Nodo<Arista> n = ady.getCabeza(); n != null; n = n.getSiguiente()){
-
+Estacion v = red.obtenerEstacion(n.getDato().getDestino());
+sb.append("<li>");
 }
+sb.append("</ul>");
+}
+return sb.append(cerrar()).toString();
+}
+publc static String subredes(RedTransporte red, ResultadoSubredes subredes, String aviso){
+StringBuilder sb = new StringBuilder(abrir("Subredes conexas"));
+sb.append(avisoHtml(aviso));
+int cantidad = subredes.getCantidad();
+if (cantidad == 0){
+return sb.append("<p style='color:#27AE60'><b>La red esta totalmente conectada.</b>" + "Desde cualquier estacion se pede llegar a cualquier otra. </p>");
 }
 }
 }
