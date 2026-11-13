@@ -387,6 +387,15 @@ StringBuilder(abrir(Formato.html(e.getNombre())));
 sb.append("<table cellpadding='3'>").append(fila("ID",e.getId())).append(fila("Linea", e.getLinea())).append(fila("Zona", e.getZona())). append(fila("Capacidad", e.getCapacidadPasajerosHora()+"pasajeros/hora")).apppend(fila("Grado", String.valueOf(red.getGrafo().grado(id))));
 if (subredes != null && subredes.getIndiceSubred(id)>= 0){sb.append(fila("Subred", "N.°" + (subredes.getIndiceSubred(id)+1)));
 }
+sb.append("</table><p><b>Conexiones directas</b></p>");
+ListaEnlazasa<Arista> ady = red.getGrafo().obtenerAdyacentes(id);
+id(ad7.estaVacia()){
+sb.append("<p style ='color:#D64545'>Estacion aislada: no tiene conexiones.</p>");
+}else{
+sb.append("<ul>");
+for(Nodo<Arista> n = ady.getCabeza(); n != null; n = n.getSiguiente()){
 
+}
+}
 }
 }
