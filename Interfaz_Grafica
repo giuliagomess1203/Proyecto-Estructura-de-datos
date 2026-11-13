@@ -358,5 +358,23 @@ panel.add(campos[i], c);
 }
 return panel;
 }
-    }
-    
+}
+import urbanroute.algoritmos.AnalizadorRed;
+import urbanroute.algoritmos.InfoGrado;
+import urbanroute.algoritmos.ResultadoRuta;
+import urbanroute.algoritmos.ResultadoSubredes;
+import urbanroute.estructuras.Arista;
+import urbanroute.estructuras.ListaEnlazada;
+import urbanroute.estructuras.Nodo;
+import urbanroute.estructuras.TablaHash;
+import urbanroute.modelo.Estacion;
+import urbanroute.modelo.Formato;
+import urbanroute.modelo.RedTransporte;
+public final class Generador Informes {
+private static final int FILAS_RANKING = 10;
+private GeneradorInformes(){
+}
+public static String bienvenida(){
+return abrir("Como usar Urbanroute") + "<p>La red se muestra como un grafo: cada circulo es una estacion y cada linea una" + "conexion con su tiempo de translado en minutos.</p>" + "<p><b>En el grafo</b></p><ul>" + "<li>Clic en una estacion: ver su ficha.</li>" + "<li>Rueda del raton: acercar/alejar.</li>" + "<li>Arrastrar el fondo: mover la vista.</li>" + "<li>Arrastrar una estacion: reubicarla.</li></ul>" + "<p><b>Analisis</b></p><ul>" + "<li><b>Subredes</b>
+}
+}
