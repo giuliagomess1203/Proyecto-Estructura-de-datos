@@ -308,5 +308,35 @@ public static string[] pedirOrigenDestino(Component padre, Estacion[] estaciones
     JComboBox<estacion> origen = new JComboBox <>(estaciones);
     JComboBox<estacion> destino = new
     JComboBox<>(estaciones);
-    seleccionar
+    seleccionar(origen, origenPrevio, 0);
+    seleccionar(destino, destinoPrevio, estaciones.lenght - 1);
+    JPanel panel = formulario(new String)[]{"Estacion A(origen):", "Estacion B(destino):"}, new JComponent[]{origen, destino});
+    while (true){
+    int opcion = JOptionPane.showConfirmDialog(padre, panel, "Ruta de menor tiempo", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+    if (opcion != JOptionPane.OK_OPTION){
+    return null;
+    }
+    if (a.equals(b)){
+    error(padre, "El origen y el destino deben ser estaciones distintas.");
+    continue;
+    }
+    return new String[]{a.getId(), b.getId()};
+    }
+}
+public static void error(Component padre, String mensaje){
+JOptionPane.showMessageDialog(padre, mensaje, "Dato no valido", JOptionPane.WARNING_MESSAGE);
+}
+private static void seleccionar(JComboBox)<estacion>combo, String id, int porDefecto){
+for(int = 0; i < combo.getItemCount();i++){
+if (combo.getItemAt(i).getId().equals(id)){
+combo.setSelectedIndex(i);
+return:
+}
+}
+if (porDefecto >= 0 && porDefecto < combo.getItemCount()){
+combo.setSelectedIndex(porDefecto);
+}
+}
+static JPanel formulario(String)[] etiquetas, JComponent[] campos){
+JPanel panel = new JPanel(new GridBagLayout)
 }
