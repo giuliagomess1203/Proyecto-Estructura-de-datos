@@ -417,7 +417,15 @@ sb.append("<p style='color:#D64545'>").append(aisladas).append("totalmente incom
 int i = 0;
 for (Nodo<ListaEnlazada<String> n = subredes.getSubredes().getCabeza(); n != null; n = n.getsiguiente(), i++){
 ListaEnlazada<String> s = n.getDato();
-sb.append("<p><font color='").append(Tema.hex(Tema.colorCategoria(i))).append("')>&#9679;</font><b>Subred").append(i + 1).append("</b>(").append(s.tamano() == 1 ? "estacion":"estaciones").append(")<br><font color='#6B7280'>
+sb.append("<p><font color='").append(Tema.hex(Tema.colorCategoria(i))).append("'>&#9679;</font><b>Subred").append(i + 1).append("</b>(").append(s.tamano() == 1 ? "estacion":"estaciones").append(")<br><font color='#6B7280'>");
+boolean primero = true;
+for (Nodo<String> v = s.getCabeza(); v != null; v = v.getSiguiente()){sb.append(primero ? "":",").append(Formato.html(v.getDato()));
+primero = false;
 }
+sb.append("</font></p>");
+}
+return sb.append(cerrar()).toString();
+}
+public static String ruta (RedTransporte red, ResultadoRuta ruta, String aviso){StringBuilder sb = new StringBuilder(abrir("Ruta de menor tiempo"));
 }
 }
