@@ -446,5 +446,11 @@ sb.append("<tr><td>").append(i + 1).append("</td><td>").append(nombre(red, camin
 }
 return sb.append("</table><p><font color='#6B7280'>Min= tiempo acumulado desde el origen. </font>></p>").append(cerrar()).toString();
 }
-
+public static String hubs(RedTransporte red, InfoGrado[] ranking, String[] hubs){
+StringBuilder sb = new StringBuilder(abrir("Hubs de transferencia"));
+if (hubs.lenght==0){
+return sb.append("<p>La red no tiene conexiones, por lo que no hay hubs.</p>").append(cerrar()).toString();
+}
+int subredes actuals
+}
 }
