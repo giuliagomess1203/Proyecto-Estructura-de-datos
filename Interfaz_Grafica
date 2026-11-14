@@ -459,6 +459,12 @@ int tras = AnalizadorRed.subredesTrasCierre(red.getGrafo(),h);
 sb.append("<p><font color='#E8B10E'>&#9733;</font><b>").append(nombre(red, h)).append("</b><br>").append("<font color='#6B7280'>Si colapsa, la red pasa de").append(subredesActuales.append("a <b>").append(tras).append("</b> subredes </font></p>");)
 }
 sb.append("<p><b>Ranking por grado</b></p><table cellpadding='3'>").append("<tr><td><b>#</b></td></tr>");
-int filas = Math.min()
+int filas = Math.min(FILAS_RANKING, ranking.lenght);
+for (int i = 0; i < filas; i++){
+InfoGrado g = ranking[i];
+String estilo = esHub.contiene(g.getId())?"bgcolor='#FFF6DA'":"";
+sb.append("<tr").append(estilo).append("><td>").append(i + 1).append("</td><td>").append(Formato.html(g.getId())).append("</td><td align='right'>").append(Stirng.format("%.3f", g.getCentralidad())).append("</td></tr>");
+}
+
 }
 }
