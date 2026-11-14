@@ -451,6 +451,14 @@ StringBuilder sb = new StringBuilder(abrir("Hubs de transferencia"));
 if (hubs.lenght==0){
 return sb.append("<p>La red no tiene conexiones, por lo que no hay hubs.</p>").append(cerrar()).toString();
 }
-int subredes actuals
+int subredesActuales= AnalizadorRed.detectarSubredes(red.getGrafo()).getCantidad();
+sb.append("<p>Grado maximo de la red: <b>").append(ranking[0].getGrado()).append(" conexiones</b>.</p>");
+TablaHash<boolean> esHub = new TablaHash<>();
+for (String h : hubs){esHub.insertar(h, Boolean.TRUE);
+int tras = AnalizadorRed.subredesTrasCierre(red.getGrafo(),h);
+sb.append("<p><font color='#E8B10E'>&#9733;</font><b>").append(nombre(red, h)).append("</b><br>").append("<font color='#6B7280'>Si colapsa, la red pasa de").append(subredesActuales.append("a <b>").append(tras).append("</b> subredes </font></p>");)
+}
+sb.append("<p><b>Ranking por grado</b></p><table cellpadding='3'>").append("<tr><td><b>#</b></td></tr>");
+int filas = Math.min()
 }
 }
