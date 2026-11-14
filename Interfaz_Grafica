@@ -469,5 +469,19 @@ public static String estadisticasHash(RedTransporte red){
 TablaHash<estacion> t = red.getIndiceEstaciones();
 return abrir("Tabla hash de estaciones") + "<p>Clave: ID de la estacion, objeto estacion. <br>" + "Dispersion polinomial base 31(Horner) y colisiones por encadenamiento separado.</p>" + "<table cellpadding ='3'>" + fila("Elementos", String.valueOf(t.tamano())) + fila("Cubetas(primo)", String.valueOf(t.capacidad())) + fila("Factor de carga", String.format("%.2f(max. %.2f)", t.factorCarga(), TablaHash.FACTOR_CARGA_MAXIMO)) + fila("Cubetas ocupadas", String.valueOf(t.cubetas())) + fila("Colisiones", String.valueOf(t.colisiones())) + fila("Cadena mas larga", String.valueOf(t.longitudCadenaMasLarga()))+ "</table>"+ cerrar();
 }
+private static String nombre (RedTransporte red, String id){
+Estacion e = red.obtenerEstacion(id);
+return Formato.html(e == null ? id: e.toString());
+}
+private static String fila (string clave, string valor){
+return "<tr>td><font color='#6B7280'>" + Formato.html(clave) + "</font></td><td><b>" + Formato.html(valor) + "</b></td></tr>";
+}
+private static string avisoHtml(String aviso){
+if(aviso == null || aviso.isEmpty()){
+return "";
+}
+return "<table width='100%' cellpadding='6'><tr><td bgcolor='#EAF2FE'>" + Formato.html(aviso) + "</td></tr></table>";
+}
+private static
 }
 }
