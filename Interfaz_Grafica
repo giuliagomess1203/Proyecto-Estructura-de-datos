@@ -431,7 +431,8 @@ sb.append(avisoHtml(aviso));
 sb.append("<p><b>Desde</b>").append(nombre(red, ruta.getOrigen())).append("<br><b>Hasta:</b>").append(nombre(red, ruta.getDestino())).append("</p>");
 if (!ruta.existeRuta()){
 return sb.append("<p style='color:#D64545'><b>No existe ruta.</b> Las estaciones estan en subredes" + "distintas: no hay ningun trayecto que las conecte.</p>").append(cerrar()).toString();
-
 }
+sb.append("<p style='font-size:15pt;
+color:#F2994A'><b>").append(Formato.minutos(ruta.getTiempoTotal())).append(")
 }
 }
