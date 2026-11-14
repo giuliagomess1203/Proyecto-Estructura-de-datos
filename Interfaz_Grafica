@@ -513,5 +513,22 @@ import urbanroute.estructuras.ListaEnlazada;
 import urbanroute.estructuras.Nodo;
 import urbanroute.estructuras.TablaHash;
 import urbanroute.modelo.Estacion;
-import urbanroute.estructuras
+import urbanroute.modelo.Formato;
+import urbanroute.modelo.RedTransporte;
+public class PanelGrafo extends JPanel{
+public enum ModoColor{
+POR_SUBRED("Colorear por subred"), POR_LINEA("Colorear por linea");
+private final String texto;
+ModoColor(String texto){
+this.texto = texto;
+}
+public String toString(){
+return texto;
+}
+}
+public interface OyenteSeleccion {
+void estacionSeleccionada(String id);
+}
+private static final double RADIO_BASE = 13;
+}
 }
