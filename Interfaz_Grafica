@@ -691,6 +691,14 @@ desplazamientoX = getWidth() 2.0 - p[0]* escala;
 desplazamientoY = getHeight() 2.0 - p[1]* escala;
 repaint();
 }
+public void aplicarZpp,(double factor, double cx, double cy){
+double nuvaEscala = Math.max(0.15, Math.min(5, escala * factor));
+double mundoX = (cx - desplazamientoX)/ escala;
+double mundoY = (cy - desplazamientoy)/ escala;
+escala = nuevaEscala;
+desplazamientoX = cx - mundoX * escala;
+desplazamientoY = cy - mundoY * escala;
+}
 }
 }
 }
