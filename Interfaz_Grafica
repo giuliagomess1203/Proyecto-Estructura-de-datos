@@ -530,5 +530,16 @@ public interface OyenteSeleccion {
 void estacionSeleccionada(String id);
 }
 private static final double RADIO_BASE = 13;
+private static final double LONGITUD_IDEAL = 70;
+private static final int MAX_LEYENDA = 10;
+private RedTransporte red;
+private TablaHash<double[]> posiciones = new Tablahash<>();
+private ResultadoSubredes subredes;
+private TablaHash<Integer> colorLinea = new TablaHash<>();
+private String[] lineas = new String[0];
+private TablaHash<Boolean> nodosRuta = new TablaHash<>();
+private TablaHash<Boolean> aristasRuta = new TablaHash<>();
+private TablaHash<Boolean> nodosHub = new TablaHash<>();
+private String seleccionada;
 }
 }
