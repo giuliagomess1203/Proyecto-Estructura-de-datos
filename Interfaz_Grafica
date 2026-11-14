@@ -668,7 +668,29 @@ aristasRuta.insertar(claveArista(camino[i - 1], camino[i]), Boolean.TRUE);
 }
 repaint;
 }
-public void resaltarHbs
+public void resaltarHubs(String[] ids){
+nodosHub = new TablaHash<>();
+for(String id : ids){
+nodosHub.insertar(id, Boolean.TRUE);
+}
+repaint();
+}
+public void limpiarResaltados(){
+nodosRuta = new TablaHash<>();
+aristasRuta = new TablaHash<>();
+nodosHub = new TablaHash<>();
+repaint();
+}
+public void seleccionarYCentrar(String id){
+double[] p = posiciones.obtener (id);
+if (p == null){
+return;
+}
+seleccionada = id;
+desplazamientoX = getWidth() 2.0 - p[0]* escala;
+desplazamientoY = getHeight() 2.0 - p[1]* escala;
+repaint();
+}
 }
 }
 }
