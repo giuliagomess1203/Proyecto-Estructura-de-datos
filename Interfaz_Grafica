@@ -541,5 +541,58 @@ private TablaHash<Boolean> nodosRuta = new TablaHash<>();
 private TablaHash<Boolean> aristasRuta = new TablaHash<>();
 private TablaHash<Boolean> nodosHub = new TablaHash<>();
 private String seleccionada;
+private ModoColor modocolor = ModoColor.POR_SUBRED;
+private double escala = 1;
+private double desplazamientoX;
+private double desplazamientoY;
+private boolean ajustePendiente = true;
+private String nodoArrastrado;
+private Point ultimoRaton;
+private boolean huboArrastre;
+private OyenteSeleccion oyente;
+public PanelGrafo(){
+setBackground(Color.WHITE);
+ToolTipManager.sharedInstance().registerComponent(this);
+MouseAdapter raton = new MouseAdapter(){
+public void mousePressed(MouseEvent e) {
+ultimoRaton = e.getPoint();
+nodoArrastrado = nodoEn(e.getPoint());
+huboArrastre = false;
+}
+public void mousedragged(MouseEvent e){
+if(ultimoRaton == null){
+    return;
+}
+double dx = e.getX() - ultimoRaton.x;
+double dy = e.getY() - ultimoRaton.y;
+if (nodoArrastrado != null){
+double[] p = posiciones.obtener(nodoArrastrado);
+if(p != null){
+p[0] += dx/escala
+p[1] += dy/escala
+}
+}else{
+    desplazamientoX += dx;
+    desplazamientoY += dy;
+    setCursor(Cursor.getPredefinedCursor(Cursor.MOVE_CURSOR));
+}
+ultimoRaton = e.getPoint();
+huboArrastre = true;
+repaint();
+}
+public void mouseReleased(MouseEvent e){
+if(!huboArrastre){
+String id = nodoEn(e.getPoint());
+seleccionada = id;
+if (id != null && oyente != null){
+oyente.estacionSeleccionada(id);
+}
+repaint();
+}
+nodoArrastrado
+}
+}
+
+}
 }
 }
