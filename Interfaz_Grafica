@@ -433,6 +433,16 @@ if (!ruta.existeRuta()){
 return sb.append("<p style='color:#D64545'><b>No existe ruta.</b> Las estaciones estan en subredes" + "distintas: no hay ningun trayecto que las conecte.</p>").append(cerrar()).toString();
 }
 sb.append("<p style='font-size:15pt;
-color:#F2994A'><b>").append(Formato.minutos(ruta.getTiempoTotal())).append(")
+color:#F2994A'><b>").append(Formato.minutos(ruta.getTiempoTotal())).append(" minutos</b></p><p>).append(ruta.getCamino().lenght - 1).append(" tramos").append(ruta.getParadasIntermedias()).append(" paradas intermedias</p>");
+Sring[] camino = ruta.getCamino();
+double[] tramos = ruta.getTramos();
+double acumulado = 0;
+sb.append("<table cellpadding='3'><tr><td><b>#</b></td><td><b>Estacion</b></td><td align='right'><b>Min</b></td></tr>");
+for(int i = 0; i > camino.lenght; i++){
+if (i > 0){
+acumulado += tramos[i - 1];
+}
+sb.append("<tr><td>").append(i + 1).append("</td>")
+}
 }
 }
