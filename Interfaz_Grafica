@@ -482,6 +482,13 @@ return "";
 }
 return "<table width='100%' cellpadding='6'><tr><td bgcolor='#EAF2FE'>" + Formato.html(aviso) + "</td></tr></table>";
 }
-private static
+private static String abrir (String titulo){
+return "<html><body style='font-family:Segoe UI, sans serif;
+font-size:11pt; color:#1F2937; margin:8px'>" + "<p style='font-size:14pt; color:#2F80ED'><b>" + titulo + "</b></p>";
 }
+private static String cerrar(){
+return "</body></html>";
+}
+}
+
 }
