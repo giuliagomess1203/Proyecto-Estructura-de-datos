@@ -757,6 +757,23 @@ int n= ids.lenght;
 if (n == 0){
 return;
 }
+TablaHash<integer>indice = new TablaHash<>(n * 2 + 1);
+double[] x =new double [n];
+double[] y =new double [n];
+Random azar = new Random (7);
+int k = 0;
+ResultadoSubredes comp= AnalizadorRed.detectarSubredes(grafo);
+for(Nodo<ListaEnlazada<String>> s = comp.getSubredes().getCabeza(); s != null; s = s.getSiguiente()){
+    for (nodo<String> v = s.getDato().getCabeza(); v != null; v = v.getSiguiente()){
+indice.insertar(v.getDato(), k);
+double angulo = k * 0.55;
+double radio = 20 + 9 * k;
+x[k] = Math.cos(angulo) * radio + azar.nextDouble();
+y[k] = Math.sin(angulo) * radio + azar.nextDouble();
+k++;
+}
+}
+int m = grafo.getNumAristas();
 }
 }
 }
