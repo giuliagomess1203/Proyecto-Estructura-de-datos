@@ -635,11 +635,27 @@ for (String id: red.getGrafo().obtenerVertices()){
 if(!posiciones.contiene(id)){
 ubicarNueva(id){
 hayNuevas = true;
-
 }
-
 }
+recalcular();
+if (hayNuevas){
+ajustePendiente = true;
+repaint();
+}
+public void redistribuir(){
+    posiciones = new TablaHash<>();
+    calcularDisposicion();
+    ajustePendiente = true;
+    repaint();
+}
+public void setModoColor(ModoColor modo){
+this.modoCOlor = modo;
+repaint();
+}
+public ResultadoSubredes getSubredes(){
 
+    
+}
 }
 }
 }
