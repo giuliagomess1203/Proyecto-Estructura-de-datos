@@ -589,7 +589,13 @@ oyente.estacionSeleccionada(id);
 }
 repaint();
 }
-nodoArrastrado
+nodoArrastrado = null;
+ultimoRaton = null;
+setCursor(Cursor.getDefaultCursor());
+}
+public void mouseMoved(MouseEvent e){
+setCursor(nodoEn(e.getPoint())!= null ? Cursor.getPredefinedCursor(HAND_CURSOR): Cursor.getDefaultCursor());
+
 }
 }
 
