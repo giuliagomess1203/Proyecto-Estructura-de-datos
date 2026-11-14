@@ -595,9 +595,22 @@ setCursor(Cursor.getDefaultCursor());
 }
 public void mouseMoved(MouseEvent e){
 setCursor(nodoEn(e.getPoint())!= null ? Cursor.getPredefinedCursor(HAND_CURSOR): Cursor.getDefaultCursor());
-
 }
+public void mouseWheelMoved(MouseWheelEvent e){
+double factor = Math.pow(1.12, -e.getPreciseWheelRotation());
+aplicarZoom(factor,e.getX(), e.getY());
 }
+};
+addMouseListener(raton);
+addMouseMotionListener(raton);
+addMouseWheelListener(raton);
+}
+public void setOyenteSeleccion(OyenteSeleccion oyente){
+this.oyente = oyente;
+}
+public void setRed(RedTransporte red){
+this.red = red;
+posiciones = new TablaHash
 
 }
 }
