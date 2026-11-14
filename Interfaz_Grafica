@@ -722,7 +722,16 @@ double margen = 70;
 double ancho = Math.max(1,maxX - minX);
 double alto = Math.max(1, maxY - minY);
 escala = Math.min((getWidht()-2* margen)/ancho(getHeight()-2 * margen)/alto);
-esclaa = Matth.max
+escala = Math.max(0.15, Math.min(1.8, escala));
+desplazamientoX = getWidth()/2.0 - (minX + maxX)/ 2.0 * escala;
+desplazamientoY = getHeight() /2.0 - (minY + maxY)/2.0 * escala;
+repaint();
+}
+private void recalcular (){
+if (red == null){
+return;
+}
+subredes = Analizador
 }
 }
 }
