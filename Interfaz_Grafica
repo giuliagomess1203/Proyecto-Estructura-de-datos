@@ -698,6 +698,31 @@ double mundoY = (cy - desplazamientoy)/ escala;
 escala = nuevaEscala;
 desplazamientoX = cx - mundoX * escala;
 desplazamientoY = cy - mundoY * escala;
+repaint();
+}
+public void ajustarVista(){
+if (red == null || red.getNumEstaciones() == 0 || getWidth()<=0){
+return;
+}
+double minX = Double.MAX_VALUE, minY = Double.MAX_VALUE;
+double maxX = -Double.MAX_VALUE, maxY = -Double.MAX_VALUE;
+for (String id : red.getGrafo().obtenerVertices()){
+double[] p = posiciones.obtener (id);
+if (p != null){
+minX = Math.min(minX, p[0]);
+minY = Math.min(minY, p[1]);
+maxX = Math.max(maxX, p[0]);
+maxY = Math.max(maxY, p[1]);
+}
+}
+if(minX == Double.MAX_VALUE){
+return;
+}
+double margen = 70;
+double ancho = Math.max(1,maxX - minX);
+double alto = Math.max(1, maxY - minY);
+escala = Math.min((getWidht()-2* margen)/ancho(getHeight()-2 * margen)/alto);
+esclaa = Matth.max
 }
 }
 }
