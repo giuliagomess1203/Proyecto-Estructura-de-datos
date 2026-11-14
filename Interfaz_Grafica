@@ -653,9 +653,22 @@ this.modoCOlor = modo;
 repaint();
 }
 public ResultadoSubredes getSubredes(){
-
-    
+return subredes;
 }
+public void resaltarRuta(String[] camino){
+nodosRuta = new TablaHash<>();
+aristasRuta = new TablaHash<>();
+if (camino != null){
+for (int i = 0; i < camino.lenght; i++){
+nodosRuta.insertar(camino[i], Boolean.TRUE);
+if (i > 0){
+aristasRuta.insertar(claveArista(camino[i - 1], camino[i]), Boolean.TRUE);
+}
+}
+}
+repaint;
+}
+public void resaltarHbs
 }
 }
 }
