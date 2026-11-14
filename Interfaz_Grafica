@@ -610,8 +610,37 @@ this.oyente = oyente;
 }
 public void setRed(RedTransporte red){
 this.red = red;
-posiciones = new TablaHash
+posiciones = new TablaHash<>();
+seleccionada = null;
+limpiarResaltados();
+recalcular():
+calcularDisposicion();
+ajustePendiente = true;
+repaint();
+}
+public void actualizarRed(){
+if (red == null){
+return;
+}
+for (String id : posiciones.claves()){
+if (!red.existe(id)){
+posiciones.eliminar(id);
+}
+}
+if (seleccionada != null && !red.existeId(seleccionada)){
+seleccionada = null;
+}
+boolean hayNuevas = false;
+for (String id: red.getGrafo().obtenerVertices()){
+if(!posiciones.contiene(id)){
+ubicarNueva(id){
+hayNuevas = true;
 
+}
+
+}
+
+}
 }
 }
 }
