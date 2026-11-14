@@ -465,6 +465,9 @@ InfoGrado g = ranking[i];
 String estilo = esHub.contiene(g.getId())?"bgcolor='#FFF6DA'":"";
 sb.append("<tr").append(estilo).append("><td>").append(i + 1).append("</td><td>").append(Formato.html(g.getId())).append("</td><td align='right'>").append(Stirng.format("%.3f", g.getCentralidad())).append("</td></tr>");
 }
-
+public static String estadisticasHash(RedTransporte red){
+TablaHash<estacion> t = red.getIndiceEstaciones();
+return abrir("Tabla hash de estaciones") + "<p>Clave: ID de la estacion, objeto estacion. <br>" + "Dispersion polinomial base 31(Horner) y colisiones por encadenamiento separado.</p>" + "<table cellpadding ='3'>" + fila("Elementos", String.valueOf(t.tamano())) + fila("Cubetas(primo)", String.valueOf(t.capacidad())) + fila("Factor de carga", String.format("%.2f(max. %.2f)", t.factorCarga(), TablaHash.FACTOR_CARGA_MAXIMO)) + fila("Cubetas ocupadas", String.valueOf(t.cubetas())) + fila("Colisiones", String.valueOf(t.colisiones())) + fila("Cadena mas larga", String.valueOf(t.longitudCadenaMasLarga()))+ "</table>"+ cerrar();
+}
 }
 }
