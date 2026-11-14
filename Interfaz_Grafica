@@ -427,5 +427,11 @@ sb.append("</font></p>");
 return sb.append(cerrar()).toString();
 }
 public static String ruta (RedTransporte red, ResultadoRuta ruta, String aviso){StringBuilder sb = new StringBuilder(abrir("Ruta de menor tiempo"));
+sb.append(avisoHtml(aviso));
+sb.append("<p><b>Desde</b>").append(nombre(red, ruta.getOrigen())).append("<br><b>Hasta:</b>").append(nombre(red, ruta.getDestino())).append("</p>");
+if (!ruta.existeRuta()){
+return sb.append("<p style='color:#D64545'><b>No existe ruta.</b> Las estaciones estan en subredes" + "distintas: no hay ningun trayecto que las conecte.</p>").append(cerrar()).toString();
+
+}
 }
 }
